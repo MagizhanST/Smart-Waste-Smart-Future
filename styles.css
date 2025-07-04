@@ -1,0 +1,163 @@
+/* WORK ON THE CSS UNITS FOR GREATER ACCESSABILITY */
+/* ORGANIZE AND USE CSS SHORTHANDS */
+/* WORK ON THE @MEDIA TAGS FOR GREATER ACCESSABILITY */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-moz-selection {
+  color: #67AE6E;
+  background: #E1EEBC;
+}
+
+::selection {
+  color: #67AE6E;
+  background: #E1EEBC;
+}
+
+br, img {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+    background-color: #328E6E;
+    margin: 0;
+}
+
+#main {
+    width: 75vw;
+    margin: auto;
+}
+
+h1, h2, h3, p, button, footer {
+    color: #E1EEBC;
+}
+
+h1, h2, button {
+    font-family: "Dela Gothic One", sans-serif;
+}
+
+h1 {
+    font-size: 6vw;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+h3, p, label, footer {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1vw;
+}
+
+p {
+    font-weight: 100;
+    font-size: 1.1vw;
+    line-height: 1.6;
+}
+
+#intro-div {
+    display: flex;
+}
+
+#info-div {
+    width: 50%;
+}
+
+button {
+    cursor: pointer;
+    background-color: #67AE6E;
+    border: none;
+    border-radius: 10px;
+    font-size: 1vw;
+    margin-bottom: 1vh;
+}
+
+.app-div, #source-link {
+    margin-left: 3vw;
+}
+
+.app-div {
+    background-color: #E1EEBC;
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+    padding-left: 2vw;
+    width: 70%;
+    border-radius: 20px;
+}
+
+#waste-footprint-results, #smart-bin-suitability-result, label {
+    color: #328E6E;
+}
+
+#waste-footprint-results, #smart-bin-suitability-result{
+    display: none;
+}
+
+label {
+    color: #328E6E;
+    font-weight: 800;
+    font-size: 1.2vw;
+    line-height: 1.4;
+}
+
+a > button {
+    padding: 20px;
+}
+
+img {
+    width: 30%;
+    height: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.app-heading-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-heading-div h2 {
+  white-space: nowrap;
+}
+
+.horizontal-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #E1EEBC;
+}
+
+form > button {
+    padding: 15px;
+}
+
+footer {
+    text-align: right;
+    font-weight: 800;
+    margin: 2vw;
+    text-shadow: 2px 2px 8px #90C67C;
+}
+
+@media only screen and (min-width: 750px) {
+    h1 {
+        font-size: 3.5vw;
+    }
+    #heading-break {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    h1 {
+        font-size: 7vw;
+    }
+}

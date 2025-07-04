@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- Made by Magizhan S T -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="styles.css">
+    <script src="waste-footprint.js"></script>
+    <script src="smart-bin-suitability.js"></script>
+    <title>Smart Waste, Smart Future</title>
+    <link rel="icon" type="image/x-icon" href="globe.ico">
+</head>
+<body>
+    <div id="main">
+        <h1>SMART WASTE, <br id="heading-break"/>SMART FUTURE</h1>
+        <h3>A webapp made for TIPS Chennai Main IBDP CSP'25</h3>
+        <div id="intro-div">
+            <div id="info-div">
+                <h2>If you can measure your waste, you can manage it. If you design for zero, you can prevent it.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor eu enim quis tristique. Suspendisse tincidunt congue consectetur. Nam eget sapien turpis. Vivamus tincidunt eros arcu, vel imperdiet dui viverra nec. Nunc posuere velit metus. Proin condimentum metus et auctor congue. Duis tincidunt diam nec lorem tempor consectetur. Donec auctor felis et ante ultrices commodo. Mauris vitae rutrum tellus. Nulla vel vehicula lorem. Suspendisse nisl augue, dignissim non ante id, fermentum posuere enim. Cras feugiat malesuada ante, sit amet convallis arcu rhoncus id. Etiam hendrerit, arcu non ullamcorper bibendum, turpis felis sodales nisi, vel fringilla eros elit quis est. Nunc a nulla nisl. Etiam et diam justo. Etiam tincidunt massa vel semper accumsan. Quisque pharetra vehicula augue, suscipit iaculis magna auctor non.</p>
+                <a href="#waste-footprint">
+                    <button>Try the Waste Footprint Estimator ▼</button>
+                </a><br/>
+                <a href="#smart-bin-suitability">
+                    <button>Try the Smart Bin Suitability Checker ▼</button>
+                </a>
+            </div>
+            <img src="globe.png" height="auto">
+        </div>
+        <div class="app-heading-div" id="waste-footprint">
+            <h2>1. Waste Footprint Estimator</h2>
+            <div class="horizontal-line"></div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor eu enim quis tristique. Suspendisse tincidunt congue consectetur. Nam eget sapien turpis. Vivamus tincidunt eros arcu, vel imperdiet dui viverra nec. Nunc posuere velit metus. Proin condimentum metus et auctor congue. Duis tincidunt diam nec lorem tempor consectetur.</p><br/>
+        <div class="app-div">
+            <form id="waste-footprint-form">
+                <label for="employees">Number of Employees:</label>
+                <input type="number" id="employees" min="1" step="1" required /><br/><br/>
+
+                <label for="office-type-wf">Office Type:</label>
+                <select id="office-type-wf">
+                    <option value="corporate">Corporate</option>
+                    <option value="co-working">Co-working</option>
+                    <option value="industrial">Industrial</option>
+                    <option value="custom">Custom</option>
+                </select><br/><br/>
+
+                <label for="waste-per-person">Waste per Person per Day:</label>
+                <input type="number" id="waste-per-person" value="1.5" min="0.001" step="0.001" required />
+                <label for="waste-per-person">kg</label><br/><br/>
+
+                <label for="working-days">Working Days per Month:</label>
+                <input type="number" id="working-days" value="22" min="1" step="1" max="31" required /><br/><br/>
+
+                <label for="unrecyclables">Unrecyclables:</label>
+                <input type="number" id="unrecyclables" value="30" min="0" max="100"  required />
+                <label for="unrecyclables">%</label><br/><br/>
+
+                <button type="submit">Estimate Waste Footprint</button>
+            </form>
+            <h3 id="waste-footprint-results">...</h3>
+        </div>
+        <div class="app-heading-div" id="smart-bin-suitability">
+            <h2>2. Smart Bin Suitability Checker</h2>
+            <div class="horizontal-line"></div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor eu enim quis tristique. Suspendisse tincidunt congue consectetur. Nam eget sapien turpis. Vivamus tincidunt eros arcu, vel imperdiet dui viverra nec. Nunc posuere velit metus. Proin condimentum metus et auctor congue. Duis tincidunt diam nec lorem tempor consectetur.</p>
+        <div class="app-div">
+            <form id="smart-bin-suitability-form">
+                <label for="num-bins">Number of Bins:</label>
+                <input type="number" id="num-bins" min="1" step="1" required /><br/><br/>
+
+                <label for="monthly-waste">Total Monthly Waste:</label>
+                <input type="number" id="monthly-waste" min="0.001" step="0.001" required />
+                <label for="monthly-waste">kg</label><br/><br/>
+
+                <label for="overflow-complaints">Complaints About Bin Overflow?</label>
+                <select id="overflow-complaints" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select><br/><br/>
+
+                <label for="pickup-schedule">Current Waste Pickup Schedule:</label>
+                <select id="pickup-schedule" required>
+                    <option value="daily">Daily</option>
+                    <option value="alternate">Alternate Days</option>
+                    <option value="twice-weekly">Twice a Week</option>
+                    <option value="weekly">Weekly</option>
+                </select><br/><br/>
+
+                <label for="office-type-sbs">Office Type:</label>
+                <select id="office-type-sbs">
+                    <option value="corporate">Corporate</option>
+                    <option value="co-working">Co-working</option>
+                    <option value="industrial">Industrial</option>
+                </select><br/><br/>
+
+                <button type="submit">Check Smart Bin Suitability</button>
+            </form>
+            <h3 id="smart-bin-suitability-result">...</h3>
+        </div>
+        <h2>Conclusion</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor eu enim quis tristique. Suspendisse tincidunt congue consectetur. Nam eget sapien turpis. Vivamus tincidunt eros arcu, vel imperdiet dui viverra nec. Nunc posuere velit metus. Proin condimentum metus et auctor congue. Duis tincidunt diam nec lorem tempor consectetur. Donec auctor felis et ante ultrices commodo. Mauris vitae rutrum tellus. Nulla vel vehicula lorem. Suspendisse nisl augue, dignissim non ante id, fermentum posuere enim. Cras feugiat malesuada ante, sit amet convallis arcu rhoncus id. Etiam hendrerit, arcu non ullamcorper bibendum, turpis felis sodales nisi, vel fringilla eros elit quis est. Nunc a nulla nisl. Etiam et diam justo. Etiam tincidunt massa vel semper accumsan. Quisque pharetra vehicula augue, suscipit iaculis magna auctor non.</p>
+        <h2>Source</h2>
+        <p id="source-link">Paul, Debadrita, and Tania Chakraborty. Design of Smart Waste Bin and Prediction Algorithm for Waste Management in Household Area. ResearchGate, Sept. 2018. <a href="https://www.researchgate.net/publication/327249624_Design_of_Smart_Waste_Bin_and_Prediction_Algorithm_for_Waste_Management_in_Household_Area">https://www.researchgate.net/publication/327249624 Design of Smart Waste Bin and Prediction Algorithm for Waste Management in Household Area</a>. Accessed 3 July 2025, 8:36 p.m.</p>
+    </div>
+    <footer>Made by Magizhan S T</footer>
+</body>
+</html>
