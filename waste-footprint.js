@@ -1,5 +1,3 @@
-//RE-READ JS
-
 window.addEventListener("load", function () {
     const wasteForm = document.getElementById("waste-footprint-form");
     const officeTypeSelect = document.getElementById("office-type-wf");

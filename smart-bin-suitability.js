@@ -1,5 +1,3 @@
-//RE-READ JS
-
 window.addEventListener("load", function () {
     const smartBinForm = document.getElementById("smart-bin-suitability-form");
     const resultDisplay = document.getElementById("smart-bin-suitability-result");
@@ -14,7 +12,7 @@ window.addEventListener("load", function () {
         const pickupSchedule = document.getElementById("pickup-schedule").value;
         const officeType = document.getElementById("office-type-sbs").value;
 
-        // Base weights for each factor (can sum to < 100 to avoid accidental 100 without good reason)
+        // Base weights
         const weights = {
             waste: 35,
             overflow: 20,
@@ -23,16 +21,16 @@ window.addEventListener("load", function () {
             binMultiplier: 10
         };
 
-        // Normalize waste (assuming 0 - 10,000 kg/month range for typical office buildings)
+        // Normalize waste score
         const wasteScore = Math.min(monthlyWaste / 10000, 1) * weights.waste;
 
-        // Overflow multiplier with bin count
+        // Overflow score based on bin count
         let overflowScore = 0;
         if (overflowComplaints === "yes") {
-            overflowScore = ((numBins / 100) * 1) * weights.overflow; // scaled by bin count
+            overflowScore = ((numBins / 100) * 1) * weights.overflow;
         }
 
-        // Pickup score
+        // Pickup schedule score
         let pickupScore = 0;
         switch (pickupSchedule) {
             case "daily":
@@ -49,7 +47,7 @@ window.addEventListener("load", function () {
                 break;
         }
 
-        // Office type weight
+        // Office type score
         let officeScore = 0;
         switch (officeType) {
             case "industrial":
@@ -63,14 +61,37 @@ window.addEventListener("load", function () {
                 break;
         }
 
-        // Bin multiplier bonus, encourages higher bin availability
+        // Bin count bonus
         const binScore = (numBins / 100) * weights.binMultiplier;
 
-        // Total score capped at 100
+        // Final score
         let totalScore = wasteScore + overflowScore + pickupScore + officeScore + binScore;
         totalScore = Math.min(totalScore, 100);
 
-        resultDisplay.innerHTML = `Smart Bin Suitability Score: <strong>${totalScore.toFixed(1)} / 100</strong>`;
+        // Generate explanation
+        const explanation = getScoreExplanation(totalScore);
+
+        resultDisplay.innerHTML = `
+            Smart Bin Suitability Score: <strong>${totalScore.toFixed(1)} / 100</strong><br/>
+            <em>${explanation}</em>
+        `;
         resultDisplay.style.display = "block";
     });
+
+    // Explanation based on score range
+    function getScoreExplanation(score) {
+        if (score >= 95) {
+            return "Your facility is an ideal candidate for smart bins. You’ll see immediate improvements in efficiency, overflow reduction, and cost savings.";
+        } else if (score >= 80) {
+            return "Smart bins are highly suitable. Expect to notice clear benefits in just a few days after implementation.";
+        } else if (score >= 60) {
+            return "Smart bins will offer moderate improvements. Benefits should become evident within a few weeks.";
+        } else if (score >= 40) {
+            return "Smart bins may offer gradual improvements over a few months. Consider additional changes to maximize their effectiveness.";
+        } else if (score >= 20) {
+            return "Smart bins could be useful long-term, but benefits might take over a year to become cost-effective. Evaluate your infrastructure and usage.";
+        } else {
+            return "Smart bins are still beneficial, but it may take a couple of years to see meaningful impact. Use data to build the case for future upgrades.";
+        }
+    }
 });
